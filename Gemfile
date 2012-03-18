@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.2'
 gem 'sqlite3','1.3.5'
 
+group :production, :staging do
+end
+
 group :development do
   gem 'rspec-rails', '2.6.1'
 end
@@ -12,6 +15,28 @@ group :test do
   gem 'webrat','0.7.1'
   gem 'spork','0.9.0.rc8'
 end
+
+# Original attempt to configure for Heroku, but we don't have Postgres installed on the laptop, so the "pg" gem
+# Installation fails.
+#
+# gem 'rails', '3.2.2'
+# 
+# group :production, :staging do
+#   gem "pg"
+# end
+# 
+# group :development do
+#   gem 'sqlite3','1.3.5'
+#   gem 'rspec-rails', '2.6.1'
+# end
+# 
+# group :test do
+#   gem 'rails', '3.2.2'
+#   gem 'sqlite3','1.3.5'
+#   gem 'rspec-rails', '2.6.1'
+#   gem 'webrat','0.7.1'
+#   gem 'spork','0.9.0.rc8'
+# end
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
